@@ -30,7 +30,7 @@ class TodoList extends Component {
     super()
     // we move this.state since we have our own state now with redux
     this.state = {
-      // savedTodoItems: ["Make a todo list of all my todo lists", "Make a playlist for every possible occasion", "Stop checking phone compulsively"],
+      // savedtodoItems: ["Make a todo list of all my todo lists", "Make a playlist for every possible occasion", "Stop checking phone compulsively"],
       inputtedItem : ''
     }
     this.submitForm = this.submitForm.bind(this);
@@ -51,6 +51,7 @@ class TodoList extends Component {
     //   state.savedTodoItems.push(inputtedItem.value);
     //   return {savedTodoItems: state.savedTodoItems, inputtedItem: ''};
     // });
+    this.props.addToDoItem(inputtedItem.value)
   }
 
   onChange(event) {
