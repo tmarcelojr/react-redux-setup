@@ -46,11 +46,11 @@ class TodoList extends Component {
 
     // The parameters "state" & "props" are copies of this components state and props 
     // That way we can manipulate them without touching the real state or real props 
-    this.setState((state, props) => {
+    // this.setState((state, props) => {
 
-      state.savedTodoItems.push(inputtedItem.value);
-      return {savedTodoItems: state.savedTodoItems, inputtedItem: ''};
-    });
+    //   state.savedTodoItems.push(inputtedItem.value);
+    //   return {savedTodoItems: state.savedTodoItems, inputtedItem: ''};
+    // });
   }
 
   onChange(event) {
