@@ -1,7 +1,17 @@
 import React, { Component } from 'react'
+// connect - it allows us to plug things inside our App...more specifically our state
+import { connect } from 'react-redux'
 import '../syles/TodoList.css';
 
-export default class TodoList extends Component {
+// WE DO NOT NEED TO IMPORT STORE BECAUSE we wrapped our App with the Provider insie our index.js. REMEMBER: our Provider has the store attached to it
+const mapStateToProps = (store) => {
+  // we need to return an object
+  return {
+    addToDoItem: store.toDoReducer
+  }
+}
+
+class TodoList extends Component {
   constructor() {
     super()
     this.state = {
@@ -26,8 +36,6 @@ export default class TodoList extends Component {
       state.savedTodoItems.push(inputtedItem.value);
       return {savedTodoItems: state.savedTodoItems, inputtedItem: ''};
     });
-
-
   }
 
   onChange(event) {
@@ -64,3 +72,15 @@ export default class TodoList extends Component {
     )
   }
 }
+
+
+// example
+// (() => {})(component);
+
+// IIFE = immedidiately invoked function expression
+// doc: https://developer.mozilla.org/en-US/docs/Glossary/IIFE
+// ()() = if you see this in your code this is just saying hey invoke the first function, then immediately invoke the second one inside the second ()
+
+// we need to pass in null as the second argument inside our connect() because this is where the function and the action would go
+// go inside toDoReducer to make the connection that the function toDoReducer takes in two parameters (state, action)
+export default connect(mapStateToProps, null)(TodoList)
