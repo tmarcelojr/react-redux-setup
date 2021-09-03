@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { toDoReducer } from './toDoReducer'
+import toDoReducer from './toDoReducer'
 
 // when you have a bunch of reducers
 // you can add a lot of reducers (key/value pairs) inside our object inside reducers variable
